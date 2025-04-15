@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your AI Assistant Platform</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+            /* Soft gradient background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #bbdefb, #ce93d8);
+            /* Soft gradient hero background */
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 15px;
+            /* Rounded corners */
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero button {
+            background-color: #673ab7;
+            /* Purple CTA button */
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            /* Rounded corners */
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #512da8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #3f51b5;
+            /* Blue heading */
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item i {
+            font-size: 2em;
+            color: #9c27b0;
+            /* Purple icon color */
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #3f51b5;
+            /* Blue subheading */
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #e3f2fd;
+            /* Light blue background */
+        }
+
+        .testimonials h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #3f51b5;
+            /* Blue heading */
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #3f51b5;
+            /* Blue heading */
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            /* Rounded corners */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #673ab7;
+            /* Purple plan name */
+        }
+
+        .pricing-card .price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3f51b5;
+            /* Blue price */
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card button {
+            background-color: #673ab7;
+            /* Purple CTA button */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            /* Rounded corners */
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-card button:hover {
+            background-color: #512da8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Placeholder for Icons - You'd typically use a font icon library like Font Awesome */
+        .icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #d1c4e9;
+            /* Light purple placeholder */
+            color: #673ab7;
+            /* Purple icon color */
+            line-height: 30px;
+            text-align: center;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .icon-brain::before {
+            content: "🧠";
+        }
+
+        /* Placeholder brain icon */
+        .icon-check::before {
+            content: "✔️";
+        }
+
+        /* Placeholder check icon */
+        .icon-star::before {
+            content: "⭐";
+        }
+
+        /* Placeholder star icon */
+        .icon-dollar::before {
+            content: "$";
+        }
+
+        /* Placeholder dollar icon */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color: #3f51b5; margin-bottom: 20px;">AI Assistant Platform</h1>
+        </header>
+
+        <section class="hero">
+            <h1>Your AI Assistant, Anytime</h1>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">Unlock the power of intelligent assistance with our
+                ChatGPT-powered platform. Get instant help, generate creative content, and boost your productivity.</p>
+            <a href="https://chatgpt.com/"><button>Get Started</button></a>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="icon icon-brain"></i>
+                    <h3>Intelligent Conversations</h3>
+                    <p>Engage in natural and insightful conversations powered by the latest AI technology.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon icon-check"></i>
+                    <h3>Instant Answers & Information</h3>
+                    <p>Get quick and accurate answers to your questions on a wide range of topics.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon icon-pencil"></i>
+                    <h3>Content Generation</h3>
+                    <p>Generate creative content like articles, summaries, and marketing copy effortlessly.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon icon-rocket"></i>
+                    <h3>Boost Productivity</h3>
+                    <p>Streamline your workflow and accomplish more in less time with AI assistance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <p>"This AI assistant has been a game-changer for my writing process. It helps me overcome writer's
+                        block and generate ideas quickly."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>"I'm amazed by the accuracy and speed of this platform. It feels like having a knowledgeable
+                        assistant available 24/7."</p>
+                    <p class="testimonial-author">- John B.</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>"The intuitive interface and powerful features make this AI assistant a must-have tool for anyone
+                        looking to enhance their productivity."</p>
+                    <p class="testimonial-author">- Emily L.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <p class="price">$9/month</p>
+                    <ul>
+                        <li>Access to core features</li>
+                        <li>Limited monthly requests</li>
+                        <li>Standard support</li>
+                    </ul>
+                    <button>Select Basic</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <p class="price">$29/month</p>
+                    <ul>
+                        <li>All Basic features</li>
+                        <li>Unlimited monthly requests</li>
+                        <li>Priority support</li>
+                        <li>Advanced features</li>
+                    </ul>
+                    <button>Select Pro</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="price">Custom Pricing</p>
+                    <ul>
+                        <li>All Pro features</li>
+                        <li>Dedicated support</li>
+                        <li>Custom integrations</li>
+                        <li>Scalable solutions</li>
+                    </ul>
+                    <button>Contact Us</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Your AI Assistant Platform. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
